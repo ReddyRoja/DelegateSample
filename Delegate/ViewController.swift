@@ -23,6 +23,8 @@ class ViewController: UIViewController,Notified{
   }
   func notify(_ name: UIColor) {
     print("roja")
+    
+    
     self.view.backgroundColor=name
   }
 
