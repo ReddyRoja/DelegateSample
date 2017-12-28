@@ -7,17 +7,22 @@
 //
 
 import UIKit
-
-class ViewController: UIViewController {
-
-  override func viewDidLoad() {
-    super.viewDidLoad()
-    // Do any additional setup after loading the view, typically from a nib.
+protocol Notified{
+  func notify(_ name:UIColor)
+}
+class ViewController: UIViewController,Notified{
+  
+  override func prepare(for segue: UIStoryboardSegue, sender: Any?){
+    if let destination = segue.destination as? SecViewController{
+      destination.delegate = self
+      destination.object = 3
+    }
   }
-
-  override func didReceiveMemoryWarning() {
-    super.didReceiveMemoryWarning()
-    // Dispose of any resources that can be recreated.
+  @IBAction func passData(_ sender: Any) {
+    performSegue(withIdentifier: "ViewController", sender: self)
+  }
+  func notify(_ name: UIColor) {
+    self.view.backgroundColor=name
   }
 
 
