@@ -22,6 +22,9 @@ class ViewController: UIViewController,Notified{
     performSegue(withIdentifier: "ViewController", sender: self)
   }
   func notify(_ name: UIColor) {
+    print("roja")
+    
+    
     self.view.backgroundColor=name
   }
 
